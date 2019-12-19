@@ -63,6 +63,8 @@ datetick('x','dd/mm','keepticks');
 title('Diff. in Temp(T_{exp} - T_{mseas})');
 filename_save = 'Temp_Comp';
 print(gcf,'-dpng','-r0',fullfile(plot_dir,filename_save));
+RMSE_T = sqrt(mean((Temperature(ind_start:ind_end,min_depth:max_depth)'-...
+    temp_mseas(:,min_depth:max_depth)').^2,1,'omitnan'));
 
 %%
 % Salt comparison plots
@@ -108,6 +110,9 @@ title('Diff. in Salt(S_{exp} - S_{mseas})');
 
 filename_save = 'Salt_Comp';
 print(gcf,'-dpng','-r0',fullfile(plot_dir,filename_save));
+
+RMSE_S = sqrt(mean((Salinity(ind_start:ind_end,min_depth:max_depth)'-...
+    salt_mseas(:,min_depth:max_depth)').^2,1,'omitnan'));
 
 %% Comparison of temperatures at given location as function of time
 depth_ind = find(min(abs(depth_want + CTD_depth))==abs(depth_want + CTD_depth));
@@ -201,3 +206,21 @@ suptitle(sprintf('BOBBLE and MSEAS Salt comp. at %s',time_want));
 
 filename_save = 'Salt_profile';
 print(gcf,'-dpng','-r0',fullfile(plot_dir,filename_save));
+
+%% Plot of RMSE error
+figure('units','normalized','outerposition',[0 0 1 1]);
+subplot(2,1,1);
+plot(time_comp,RMSE_T);
+datetick('x','dd/mm','keepticks');
+xlabel('Time');
+ylabel('RMSE Temp error');
+
+subplot(2,1,2);
+plot(time_comp,RMSE_S);
+datetick('x','dd/mm','keepticks');
+xlabel('Time');
+ylabel('RMSE Salt error');
+
+filename_save = 'RMSE_time_series';
+print(gcf,'-dpng','-r0',fullfile(plot_dir,filename_save));
+

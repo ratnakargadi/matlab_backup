@@ -2,15 +2,15 @@
 % across a specified latitude 
 % Remove to comment the next three lines of code after debugging
 %profile on;
-clear all;
-clc;
-close all;
+%clear all;
+%clc;
+%close all;
 
-addpath('/home/deepakns/Software/HOPS/mexcdf');
-addpath(genpath('/share/apps/matlab_nctools'));
-addpath(genpath('/home/deepakns/Software/Matlab/DeepakUtils'));
+% addpath('/home/deepakns/Software/HOPS/mexcdf');
+% addpath(genpath('/share/apps/matlab_nctools'));
+% addpath(genpath('/home/deepakns/Software/Matlab/DeepakUtils'));
 
-pe_dir = '/gdata/projects/bobble/PE/2019/1010/Run04';
+%pe_dir = '/gdata/projects/bobble/PE/2019/1010/Run07';
 pe_file = [pe_dir filesep 'pe_out.nc'];
 timind = [];
 
@@ -38,7 +38,7 @@ if(~exist(plot_dir_3))
     mkdir(plot_dir_3);
 end
 
-lat_want = 8;
+%lat_want = 8;
 ncid = netcdf(pe_file);
 time_ini = get_petim0(ncid);
 time = ncid{'time'}(:);
@@ -55,7 +55,7 @@ if isempty(timind)
 end
 
 if(~exist('zflat','var'))
-    zflat = [0.03:2:201];
+    zflat = [0.03:2:350];
 end
 
 nxy = nx * ny;

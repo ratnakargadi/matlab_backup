@@ -1,17 +1,17 @@
 %% This code compares the CTD data from the BOBBLE experiment to the Temp.,
 % Salinity data from the MSEAS code 
 % Comment the next three lines
-clear all;
-clc;
-close all;
+% clear all;
+% clc;
+% close all;
 
-addpath('/home/deepakns/Software/HOPS/mexcdf');
-addpath(genpath('/share/apps/matlab_nctools'));
-addpath(genpath('/home/deepakns/Software/Matlab/DeepakUtils'));
+% addpath('/home/deepakns/Software/HOPS/mexcdf');
+% addpath(genpath('/share/apps/matlab_nctools'));
+% addpath(genpath('/home/deepakns/Software/Matlab/DeepakUtils'));
 
 load('ADCP.mat');
 
-pe_dir = '/gdata/projects/bobble/PE/2019/1010/Run04';
+%pe_dir = '/gdata/projects/bobble/PE/2019/1010/Run04';
 pe_file = [pe_dir filesep 'pe_out.nc'];
 
 ncid = netcdf(pe_file);
@@ -91,4 +91,4 @@ for tind = ind_start:ind_end
 end
 
 time_comp = Time_adcp_utc(ind_start:ind_end);
-save('BOBBLE_MSEAS_ADCP_comp.mat','u_mseas','v_mseas','time_comp','ind_start','ind_end','pe_dir');
+save('BOBBLE_MSEAS_ADCP_comp.mat','-append','u_mseas','v_mseas','time_comp','ind_start','ind_end','pe_dir');

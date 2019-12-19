@@ -2,6 +2,9 @@ function [rows,cols] = BB(LON,LAT,lon,lat)
 %% This function finds the bounding box of the (lon,lat) pair
 distval = sqrt((LON - lon).^2 + (LAT - lat).^2);
 [row,col] = find((distval==min(distval(:))));
+if(length(row)>1)
+    row = row(1);
+end
 % xv = [LON(row,col) LON(row+1,col) LON(row+1,col-1) LON(row,col-1)];
 % yv = [LAT(row,col) LAT(row+1,col) LAT(row+1,col-1) LAT(row,col-1)];
 [in,on] = inpolygon(lon,lat,[LON(row,col) LON(row+1,col) LON(row+1,col-1) LON(row,col-1)]...

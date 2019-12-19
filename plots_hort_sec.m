@@ -1,14 +1,14 @@
 %% This file plots flat levels of Temperature, Salinity and density plots
 % Comment the next three lines
-clear all;
-clc;
-close all;
+% clear all;
+% clc;
+% close all;
 
-addpath('/home/deepakns/Software/HOPS/mexcdf');
-addpath(genpath('/share/apps/matlab_nctools'));
-addpath(genpath('/home/deepakns/Software/Matlab/DeepakUtils'));
+% addpath('/home/deepakns/Software/HOPS/mexcdf');
+% addpath(genpath('/share/apps/matlab_nctools'));
+% addpath(genpath('/home/deepakns/Software/Matlab/DeepakUtils'));
 
-pe_dir = '/gdata/projects/bobble/PE/2019/1010/Run04';
+%pe_dir = '/gdata/projects/bobble/PE/2019/1010/Run04';
 pe_file = [pe_dir filesep 'pe_out.nc'];
 timind = [];
 

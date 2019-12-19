@@ -1,8 +1,8 @@
 %% This code compares BOBBLE experiment and MSEAS numerical code output
 % Comment the next three lines after debugging
-clear all;
-clc;
-close all;
+ clear all;
+ clc;
+ close all;
 
 load('ADCP.mat');
 load('BOBBLE_MSEAS_ADCP_comp.mat');

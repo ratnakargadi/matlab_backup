@@ -1,16 +1,16 @@
 %% This code filters the BOBBLE experiment data using median filter. The
 % filtering is not 2D, but instead 1D (along the depth).
 % Comment the next three lines
-clear all;
-clc;
-close all;
+% clear all;
+% clc;
+% close all;
 
 addpath('/gdata/Deepak_External_Drive/Software/FVIT/trunk/SandBox/Src/Util/DeepakUtils/Pat_MATLAB_Functions')
 
 load('CTD.mat');
-order = 7;%Fill this basing on one's experience; if not known, trial and error
+%order = 9;%Fill this basing on one's experience; if not known, trial and error
 min_depth = 9;
-max_depth = 500;
+%max_depth = 350;
 iter_max = 300;
 
 for i=1:length(Time_ctd_utc)
